@@ -1,0 +1,31 @@
+.search {
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgb(15, 10, 3);
+  .select {
+    padding: 50px;
+  }
+}
+
+.search-btn {
+  margin: auto;
+}
+
+.info-div {
+  border: 2px solid rgb(245, 197, 143);
+  width: 100%;
+}
+
+.header {
+  margin: auto;
+  padding: 30px;
+  color: rgb(245, 57, 57);
+  font-size: 30px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  padding-left: 450px;
+}
