@@ -5,3 +5,35 @@
   background-image: url("../vaccine-6181858.jpg");
   background-size: cover;
 }
+
+footer {
+  background-image: url("../vaccine-6181858.jpg");
+  background-size: cover;
+  position: relative;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding-top: 10px;
+  text-align: center;
+  height: 120px;
+  font-family: "Original Surfer", cursive;
+  padding: 0px;
+  font-size: 30px;
+  padding-bottom: 30px;
+}
+
+.contact {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-left: 43%;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.contact li {
+  margin: 10px;
+  margin-top: 0px;
+  padding-top: 0px;
+}

@@ -12,6 +12,14 @@
 
 .search-btn {
   margin: auto;
+  transition-duration: 0.4s;
+  border-radius: 2px;
+  background: #93e596;
+}
+
+.search-btn:hover {
+  background-color: #4caf50; /* Green */
+  color: white;
 }
 
 .info-div {
