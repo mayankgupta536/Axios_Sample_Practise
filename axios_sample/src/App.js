@@ -134,7 +134,7 @@ function App() {
   };
 
   const scheduleHandler = (e) => {
-    const changeDateFormat = dateInput.split("-").join("/");
+    const changeDateFormat = dateInput.split("-").reverse().join("/");
     const individual_obj = {
       email: email,
       district: district,
