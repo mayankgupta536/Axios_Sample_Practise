@@ -37,3 +37,53 @@ footer {
   margin-top: 0px;
   padding-top: 0px;
 }
+
+.filter-container {
+  margin: auto;
+  margin-top: 10px;
+  height: 40px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid rgb(69, 123, 223);
+  box-shadow: 2px 5px #888888;
+  h3 {
+    margin-right: 20px;
+  }
+}
+
+.filters {
+  label {
+    padding: 10px;
+  }
+  select {
+    cursor: pointer;
+  }
+}
+
+.date-input {
+  border: 2px solid red;
+  color: red;
+}
+
+.schedule-button {
+  margin: auto;
+  margin-left: 100px;
+  button {
+    display: inline-block;
+    border-radius: 25em;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0.3em 1.2em;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 2px 5px rgb(243, 121, 64);
+  }
+}
+
+.schedule-button button:hover {
+  background-color: #453add; /* Green */
+  color: white;
+}
