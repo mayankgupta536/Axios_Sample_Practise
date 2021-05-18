@@ -29,18 +29,18 @@ function App() {
   const [email, setEmail] = useState("");
   const [payment, setPayment] = useState("");
 
-  useEffect(() => {
-    axios
-      .get(
-        `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=570&date=14-05-2021`
-      )
-      .then((data) => {
-        console.log(data.data);
-        //setDateInput("2021 - 05 - 15");
-        // setDistrictInfo(data.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=570&date=14-05-2021`
+  //     )
+  //     .then((data) => {
+  //       console.log(data.data);
+  //       //setDateInput("2021 - 05 - 15");
+  //       // setDistrictInfo(data.data);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, []);
 
   // useEffect(() => {
   //   axios
@@ -91,7 +91,9 @@ function App() {
     setDateInput(change);
   };
 
-  const searchCentre = () => {
+  const searchCentre = (e) => {
+    e.preventDefault();
+    console.log(e);
     axios
       .get(
         `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${district}&date=${apiCall_date}`
@@ -134,6 +136,8 @@ function App() {
   };
 
   const scheduleHandler = (e) => {
+    e.preventDefault();
+    console.log(e);
     const changeDateFormat = dateInput.split("-").reverse().join("/");
     const individual_obj = {
       email: email,
@@ -163,28 +167,30 @@ function App() {
   return (
     <div className="app">
       <div className="header">Covid Vaccine Registration - 2021</div>
-      <div className="search">
-        <label>
-          <strong>Select State:</strong>
-        </label>
-        <select
-          onChange={updateStateList}
-          placeholder={"select"}
-          className="state-select"
-        >
-          <option value=""></option>
-          {stateList &&
-            stateList.states.map((state) => {
-              return (
-                <option
-                  key={state.state_id}
-                  value={state.state_id}
-                  label={state.state_name}
-                ></option>
-              );
-            })}
+      <form onSubmit={searchCentre}>
+        <div className="search">
+          <label>
+            <strong>Select State:</strong>
+          </label>
+          <select
+            onChange={updateStateList}
+            placeholder={"select"}
+            className="state-select"
+            required
+          >
+            <option value=""></option>
+            {stateList &&
+              stateList.states.map((state) => {
+                return (
+                  <option
+                    key={state.state_id}
+                    value={state.state_id}
+                    label={state.state_name}
+                  ></option>
+                );
+              })}
 
-          {/* {stateList.data.states.map((state) => {
+            {/* {stateList.data.states.map((state) => {
                 return (
                   <option
                     value={state.state_id}
@@ -192,85 +198,89 @@ function App() {
                   ></option>
                 );
               })} */}
-        </select>
-        <label>
-          <strong>Select District:</strong>
-        </label>
-        <select onChange={districtIdChange}>
-          <option value="" placeholder="Select District"></option>
-          {districtInfo &&
-            districtInfo.districts.map((district) => {
-              return (
-                <option
-                  key={district.district_id}
-                  value={district.district_id}
-                  label={district.district_name}
-                ></option>
-              );
-            })}
-        </select>
-        <label>
-          <strong>Date:</strong>
-        </label>
-        <input
-          type="date"
-          defaultValue={dateInput}
-          disabled
-          className="date-input"
-        ></input>
+          </select>
+          <label>
+            <strong>Select District:</strong>
+          </label>
+          <select onChange={districtIdChange} required>
+            <option value="" placeholder="Select District"></option>
+            {districtInfo &&
+              districtInfo.districts.map((district) => {
+                return (
+                  <option
+                    key={district.district_id}
+                    value={district.district_id}
+                    label={district.district_name}
+                  ></option>
+                );
+              })}
+          </select>
+          <label>
+            <strong>Date:</strong>
+          </label>
+          <input
+            type="date"
+            defaultValue={dateInput}
+            disabled
+            className="date-input"
+          ></input>
 
-        <div className="search-btn">
-          <button onClick={searchCentre}>
-            Search Centre
-            <FontAwesomeIcon icon={faSearch} />
-          </button>
+          <div className="search-btn">
+            <button>
+              Search Centre
+              <FontAwesomeIcon icon={faSearch} />
+            </button>
+          </div>
         </div>
-      </div>
+      </form>
       {filter ? (
-        <div className="filter-container">
-          <h3> Choose Your Vaccine Type:</h3>
-          <div className="filters">
-            <label>
-              <strong>Age:</strong>
-            </label>
-            <select onChange={changeAgeHandler} value={age}>
-              <option value=""></option>
-              <option value="18" label="18-44"></option>
-              <option value="45" label="45+"></option>
-            </select>
-            <label>
-              <strong>Vaccine Brand:</strong>
-            </label>
+        <form onSubmit={scheduleHandler}>
+          <div className="filter-container">
+            <h3> Choose Your Vaccine Type:</h3>
+            <div className="filters">
+              <label>
+                <strong>Age:</strong>
+              </label>
+              <select onChange={changeAgeHandler} value={age} required>
+                <option value=""></option>
+                <option value="18" label="18-44"></option>
+                <option value="45" label="45+"></option>
+              </select>
+              <label>
+                <strong>Vaccine Brand:</strong>
+              </label>
 
-            <select>
-              <option value=""></option>
-              <option value="COVISHIELD" label="COVISHIELD"></option>
-              <option value="COVAXIN" label="COVAXIN"></option>
-            </select>
-            <label>
-              <strong>Vaccine Type:</strong>
-            </label>
+              <select required>
+                <option value=""></option>
+                <option value="COVISHIELD" label="COVISHIELD"></option>
+                <option value="COVAXIN" label="COVAXIN"></option>
+              </select>
+              <label>
+                <strong>Vaccine Type:</strong>
+              </label>
 
-            <select value={payment} onChange={paymentTypeHandler}>
-              <option value=""></option>
-              <option value="Free" label="Free"></option>
-              <option value="Paid" label="Paid"></option>
-            </select>
-            <label for="email">
-              <strong>Email:</strong>
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              onChange={getEmailHandler}
-              value={email}
-            ></input>
+              <select value={payment} onChange={paymentTypeHandler} required>
+                <option value=""></option>
+                <option value="Free" label="Free"></option>
+                <option value="Paid" label="Paid"></option>
+              </select>
+              <label htmlFor="email">
+                <strong>Email:</strong>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                onChange={getEmailHandler}
+                value={email}
+                required="Email is Required."
+              ></input>
+            </div>
+            <div className="schedule-button">
+              <button>Click To Schedule</button>
+            </div>
           </div>
-          <div className="schedule-button">
-            <button onClick={scheduleHandler}>Click To Schedule</button>
-          </div>
-        </div>
+        </form>
       ) : null}
       <div className="weather-info">
         {centreInfo &&
