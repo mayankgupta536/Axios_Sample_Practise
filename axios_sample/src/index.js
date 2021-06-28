@@ -2,12 +2,20 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import Footer from "./Footer";
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
   document.getElementById("root")
+  //render([<App key="1" />, <Footer key="2" />], document.getElementById("root"))
+);
+ReactDOM.render(
+  <React.StrictMode>
+    <Footer />
+  </React.StrictMode>,
+  document.getElementById("footer")
   //render([<App key="1" />, <Footer key="2" />], document.getElementById("root"))
 );
 

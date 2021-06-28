@@ -3,9 +3,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-
 function App() {
   const set_current_date = `${new Date().getFullYear()}-${(
     new Date().getMonth() + 1
@@ -313,39 +310,6 @@ function App() {
           <h3>{/* {districtInfo && districtInfo.centers[0].name} */}</h3>
         </div>
       </div>
-      <footer>
-        <h2 style={{ fontSize: "25px" }}>Creator :IndrasenYadav |@2021@HCL</h2>
-
-        <small style={{ fontSize: "15px", margin: "0px", padding: "0px" }}>
-          *****The data has been taken from the cowin.govin.api*****
-        </small>
-        <ul className="contact">
-          <li>
-            <a href="https://github.com/indrasen536">
-              <FontAwesomeIcon
-                color={theme == "light" ? "cyan" : "#012C48"}
-                icon={faGithub}
-              ></FontAwesomeIcon>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/indrasen-yadav-a45592126/">
-              <FontAwesomeIcon
-                color={theme == "light" ? "cyan" : "#012C48"}
-                icon={faLinkedin}
-              ></FontAwesomeIcon>
-            </a>
-          </li>
-          <li>
-            <a href="mailto:indrasen.i@hcl.com">
-              <FontAwesomeIcon
-                color={theme == "light" ? "cyan" : "#012C48"}
-                icon={faEnvelope}
-              ></FontAwesomeIcon>
-            </a>
-          </li>
-        </ul>
-      </footer>
     </div>
   );
 }

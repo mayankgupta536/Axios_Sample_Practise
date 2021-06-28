@@ -4,22 +4,25 @@
 .app {
   background-image: url("../vaccine-6181858.jpg");
   background-size: cover;
+  min-height: 100%;
 }
 
 footer {
   background-image: url("../vaccine-6181858.jpg");
   background-size: cover;
   position: relative;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  padding-top: 10px;
+  top: 260px;
+  width: 100%;
+
+  //   right: 0;
+  //   padding-top: 10px;
   text-align: center;
-  height: 120px;
-  font-family: "Original Surfer", cursive;
-  padding: 0px;
-  font-size: 30px;
-  padding-bottom: 30px;
+  //   height: 120px;
+  //   font-family: "Original Surfer", cursive;
+  //   padding: 0px;
+  //   font-size: 30px;
+  //   padding-bottom: 30px;
+  border: blue 2px solid;
 }
 
 .contact {
