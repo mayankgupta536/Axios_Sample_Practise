@@ -6,7 +6,7 @@ const theme = "";
 const Footer = () => {
   return (
     <footer>
-      <h2 style={{ fontSize: "25px" }}>Creator :Mayank Gupta |@2021</h2>
+      <h2 style={{ fontSize: "25px" }}>Creator :Your Name |@2021</h2>
 
       <small style={{ fontSize: "15px", margin: "0px", padding: "0px" }}>
         *****The data has been taken from the cowin.govin.api*****
@@ -29,7 +29,7 @@ const Footer = () => {
           </a>
         </li>
         <li>
-          <a href="mailto:mayankguptatrainer2018@gmail.com">
+          <a href="mailto:#">
             <FontAwesomeIcon
               color={theme == "light" ? "cyan" : "#012C48"}
               icon={faEnvelope}
